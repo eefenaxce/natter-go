@@ -1,6 +1,6 @@
 # NatterGo
 
-NatterGo 是一个基于 Go 语言开发的网络通信相关项目，支持多种网络协议和穿透能力，适合需要高性能、跨平台的网络应用开发者。
+NatterGo 是一个用 Go 语言实现的高性能网络通信工具。
 
 ## 项目简介
 
@@ -18,11 +18,63 @@ go build ./cmd/...
 
 ## 使用方法
 
-请根据 `cmd/` 目录下的子命令选择入口，常见用法：
+### 1. 编译所有命令行工具
 
 ```bash
-go run ./cmd/xxx  # 替换xxx为具体子命令
+go build -o bin ./cmd/...
 ```
+编译后所有可执行文件会在 `bin/` 目录下。
+
+### 2. 运行某个子命令
+
+假设有一个子命令叫 `natter-server`，你可以这样运行：
+
+```bash
+./bin/natter-server --help
+```
+
+### 3. 常见命令与参数
+
+以 `natter-server` 和 `natter-client` 为例（请根据你实际的cmd目录内容替换）：
+
+#### 启动服务端
+```bash
+./bin/natter-server --listen :9000 --log-level debug
+```
+- `--listen`：监听地址和端口（如`:9000`）
+- `--log-level`：日志级别（如`info`、`debug`）
+
+#### 启动客户端
+```bash
+./bin/natter-client --server 127.0.0.1:9000 --user alice
+```
+- `--server`：服务端地址
+- `--user`：用户名
+
+### 4. 查看所有可用命令
+
+```bash
+ls ./cmd
+```
+每个子目录对应一个可执行程序，编译后在 `bin/` 目录下。
+
+### 5. 查看命令帮助
+
+```bash
+./bin/xxx --help
+```
+会显示该命令支持的所有参数和用法。
+
+### 6. 示例：UPnP端口映射
+
+假如有 `natter-upnp` 工具：
+```bash
+./bin/natter-upnp --add --port 12345 --desc "NatterGo Test"
+```
+
+---
+
+> 具体命令和参数请以 `cmd/` 目录下实际子命令和 `--help` 输出为准。
 
 ## 依赖说明
 
