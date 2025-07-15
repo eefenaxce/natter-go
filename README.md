@@ -106,7 +106,6 @@ NatterGo/
 ## 许可证 & 贡献
 
 本项目采用 https://choosealicense.com/licenses/apache-2.0/ 许可证。
-贡献者需签署 https://cla-assistant.io/eefenaxce/natter-go（贡献者协议），流程自动完成，不影响日常 PR。
 
 ```
                                  Apache License
